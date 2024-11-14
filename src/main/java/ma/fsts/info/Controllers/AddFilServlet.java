@@ -69,14 +69,14 @@ public class AddFilServlet extends HttpServlet {
 
         Filiere filiere = null;
 
-        if ("edit".equals(action)) {
+        if (action.equals("edit")) {
             // Mise à jour d'une filière existante
             int id = Integer.parseInt(request.getParameter("idEdit"));
             filiere = new Filiere(id, name, idDep);
             fs.modifyF(filiere);
         }
 
-        if ("add".equals(action)) {
+        if (action.equals("add")) {
             filiere = new Filiere(0, name, idDep);
             fs.add(filiere);
         }
