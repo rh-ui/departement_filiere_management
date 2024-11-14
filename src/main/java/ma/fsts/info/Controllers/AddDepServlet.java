@@ -60,14 +60,14 @@ public class AddDepServlet extends HttpServlet {
 
 
         String action = request.getParameter("action");
-        if ("editDep".equals(action)) {
+        if (action.equals("editDep")) {
             // Mise à jour d'une filière existante
             int id = Integer.parseInt(request.getParameter("idEditDep"));
             department = new Departement(id, name);
             ds.updateDep(department);
         }
 
-        if ("addDep".equals(action)) {
+        if (action.equals("addDep")) {
             department = new Departement(0, name);
             ds.addDep(department);
         }
